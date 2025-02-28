@@ -13,28 +13,67 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         textarea {
-            width: 80%;
-            height: 100px;
+            width: 100%;
+            height: 120px;
             margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
         }
         button {
-            margin: 5px;
-            padding: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .dark-mode {
+            background: #222;
+            color: white;
+        }
+        .dark-mode .container {
+            background: #333;
         }
     </style>
 </head>
 <body>
-    <h2>Text Case Converter</h2>
-    <textarea id="textInput" placeholder="Enter text here..."></textarea>
-    <div>
-        <button onclick="convertText('upper')">UPPERCASE</button>
-        <button onclick="convertText('lower')">lowercase</button>
-        <button onclick="convertText('title')">Title Case</button>
-        <button onclick="convertText('sentence')">Sentence case</button>
-        <button onclick="copyText()">Copy</button>
+    <div class="container">
+        <h2>Text Case Converter</h2>
+        <textarea id="textInput" placeholder="Enter text here..."></textarea>
+        <div class="buttons">
+            <button onclick="convertText('upper')" style="background: #007bff; color: white;">UPPERCASE</button>
+            <button onclick="convertText('lower')" style="background: #28a745; color: white;">lowercase</button>
+            <button onclick="convertText('title')" style="background: #ffc107; color: black;">Title Case</button>
+            <button onclick="convertText('sentence')" style="background: #17a2b8; color: white;">Sentence case</button>
+            <button onclick="copyText()" style="background: #6c757d; color: white;">Copy</button>
+        </div>
+        <br>
+        <button onclick="toggleDarkMode()" style="background: #000; color: white;">Toggle Dark Mode</button>
     </div>
     <script>
         function convertText(type) {
@@ -56,6 +95,10 @@
             textArea.select();
             document.execCommand("copy");
             alert("Copied to clipboard!");
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
         }
     </script>
 </body>
