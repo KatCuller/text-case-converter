@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Case Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        textarea {
+            width: 80%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Text Case Converter</h2>
+    <textarea id="textInput" placeholder="Enter text here..."></textarea>
+    <div>
+        <button onclick="convertText('upper')">UPPERCASE</button>
+        <button onclick="convertText('lower')">lowercase</button>
+        <button onclick="convertText('title')">Title Case</button>
+        <button onclick="convertText('sentence')">Sentence case</button>
+        <button onclick="copyText()">Copy</button>
+    </div>
+    <script>
+        function convertText(type) {
+            let text = document.getElementById("textInput").value;
+            if (type === 'upper') {
+                text = text.toUpperCase();
+            } else if (type === 'lower') {
+                text = text.toLowerCase();
+            } else if (type === 'title') {
+                text = text.replace(/\w\S*/g, (w) => w.charAt(0).toUpperCase() + w.substr(1).toLowerCase());
+            } else if (type === 'sentence') {
+                text = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+            }
+            document.getElementById("textInput").value = text;
+        }
+        
+        function copyText() {
+            let textArea = document.getElementById("textInput");
+            textArea.select();
+            document.execCommand("copy");
+            alert("Copied to clipboard!");
+        }
+    </script>
+</body>
+</html>
