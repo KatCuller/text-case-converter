@@ -18,10 +18,10 @@
             transition: background 0.3s, color 0.3s;
         }
         .container {
-            width: 95%; /* Increased width */
-            max-width: 650px; /* Increased max-width */
+            width: 90%; /* Adjusted width for better spacing */
+            max-width: 600px; /* Ensuring no overflow */
             background: white;
-            padding: 20px;
+            padding: 25px; /* More padding for better spacing */
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -34,6 +34,7 @@
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            box-sizing: border-box; /* Prevents width overflow */
         }
         .buttons {
             display: flex;
