@@ -19,11 +19,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            height: auto;
             margin: 0;
             background-color: #f4f4f4;
             color: #333;
             transition: background 0.3s, color 0.3s;
+            padding: 20px;
         }
         .container {
             width: 90%;
@@ -33,6 +34,7 @@
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            margin-bottom: 20px;
         }
         textarea {
             width: 100%;
@@ -68,6 +70,15 @@
         .dark-mode .container {
             background: #333;
         }
+        .content-section {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -85,6 +96,32 @@
         <br>
         <button onclick="toggleDarkMode()" style="background: #000; color: white;">Toggle Dark Mode</button>
     </div>
+
+    <div class="content-section">
+        <h2>What is a Text Case Converter?</h2>
+        <p>A text case converter is a free tool that helps users quickly change text between different capitalization styles, such as UPPERCASE, lowercase, Title Case, and Sentence case. Whether you're formatting documents, writing blog posts, or coding, this tool makes it easy to adjust text in one click.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>How to Use the Text Case Converter</h2>
+        <ul>
+            <li>Type or paste your text into the box.</li>
+            <li>Click one of the buttons to convert the text.</li>
+            <li>Use the "Copy" button to quickly copy the formatted text.</li>
+            <li>Switch to Dark Mode if preferred!</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h2>FAQs</h2>
+        <h3>What does a text case converter do?</h3>
+        <p>A text case converter changes text to UPPERCASE, lowercase, Title Case, or Sentence case for easy formatting.</p>
+        <h3>Who needs a text case converter?</h3>
+        <p>Writers, students, programmers, and content creators who need quick formatting.</p>
+        <h3>Can I use this tool on mobile?</h3>
+        <p>Yes! This text converter works on phones, tablets, and desktops.</p>
+    </div>
+
     <script>
         function convertText(type) {
             let text = document.getElementById("textInput").value;
@@ -113,4 +150,3 @@
     </script>
 </body>
 </html>
-
