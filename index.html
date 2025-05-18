@@ -111,20 +111,24 @@
 
             <!-- Center Column -->
             <div>
-                <div class="section tool-container">
-                    <h1>Text Case Converter</h1>
-                    <p>Use this free tool to convert text to UPPERCASE, lowercase, Title Case, or Sentence case instantly!</p>
-                    <textarea id="textInput" placeholder="Enter text here..."></textarea>
-                    <div class="buttons">
-                        <button onclick="convertText('upper')" style="background: #007bff; color: white;">UPPERCASE</button>
-                        <button onclick="convertText('lower')" style="background: #28a745; color: white;">lowercase</button>
-                        <button onclick="convertText('title')" style="background: #ffc107; color: black;">Title Case</button>
-                        <button onclick="convertText('sentence')" style="background: #17a2b8; color: white;">Sentence case</button>
-                        <button onclick="copyText()" style="background: #6c757d; color: white;">Copy</button>
-                    </div>
-                    <br>
-                    <button onclick="toggleDarkMode()" style="background: #000; color: white;">Toggle Dark Mode</button>
-                </div>
+             <div class="section tool-container">
+  <h1>Text Case Converter</h1>
+  <p>Use this free tool to convert text to UPPERCASE, lowercase, Title Case, or Sentence case instantly!</p>
+  
+  <textarea id="textInput" placeholder="Enter text here..." oninput="updateCounter()"></textarea>
+  
+  <p id="counter" style="text-align:center; font-size: 14px; color: #555;">Words: 0 | Characters: 0</p>
+
+  <div class="buttons">
+    <button onclick="convertText('upper')" style="background: #007bff; color: white;">UPPERCASE</button>
+    <button onclick="convertText('lower')" style="background: #28a745; color: white;">lowercase</button>
+    <button onclick="convertText('title')" style="background: #ffc107; color: black;">Title Case</button>
+    <button onclick="convertText('sentence')" style="background: #17a2b8; color: white;">Sentence case</button>
+    <button onclick="copyText()" style="background: #6c757d; color: white;">Copy</button>
+  </div>
+  <br>
+  <button onclick="toggleDarkMode()" style="background: #000; color: white;">Toggle Dark Mode</button>
+</div>
                 <div class="section">
                     <h2>How to Use the Text Case Converter</h2>
                     <ul>
@@ -211,6 +215,14 @@
             }
             document.getElementById("textInput").value = text;
         }
+
+        function updateCounter() {
+  const text = document.getElementById("textInput").value;
+  const words = text.trim().split(/\s+/).filter(word => word.length > 0).length;
+  const characters = text.length;
+  document.getElementById("counter").textContent = `Words: ${words} | Characters: ${characters}`;
+}
+
 
         function copyText() {
             let textArea = document.getElementById("textInput");
